@@ -11,7 +11,6 @@ class TestData(unittest.TestCase):
     def setUp(self):
 
         self.path = "./cicd_db/data"
-        self.path = "./data"
 
     def test_mock_data_generation(self):
         for filename in os.listdir(self.path):
