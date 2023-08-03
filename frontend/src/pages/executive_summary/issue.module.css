@@ -1,0 +1,29 @@
+.avgTime {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team {
+    margin: 0 auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #006E7F;
+    color: #ffffff;
+}
+
+.productTeams {
+    width: 100%;
+    height: 250px;
+}
+
+.issueChart {
+    width: 100%;
+    height: 250px;
+}

@@ -1,0 +1,31 @@
+.PullRequestLeadTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 50px;
+}
+
+
+.PullRequestSize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F31559;
+    margin-top: 50px;
+}
+
+.mergeRequest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    margin-top: 50px;
+}
+
+.ratio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

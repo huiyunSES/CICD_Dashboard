@@ -1,0 +1,153 @@
+step_id,step_name,conclusion,workflow_id,created_at,completed_at
+step-1,triage/triage,Success,workflow-1,2023-06-10 16:48:51,2023-06-17T13:56:57
+step-2,build/Using java version:11,Success,workflow-2,2022-08-16 06:21:32,2022-08-31T12:44:17
+step-3,prod/Start Stage,Success,workflow-3,2022-09-10 01:58:36,2023-02-09T04:10:37
+step-4,prod/PROD,Success,workflow-3,2023-02-12 08:19:17,2023-04-22T16:54:26
+step-5,prod/Start Stage,Success,workflow-4,2022-07-29 23:42:38,2022-10-23T17:50:44
+step-6,prod/PROD,Success,workflow-4,2022-11-21 20:21:54,2023-01-03T05:53:15
+step-7,prod/Complete Stage ,Success,workflow-4,2022-11-24 09:48:36,2023-04-16T01:29:48
+step-8,publish/publish,Success,workflow-5,2022-09-25 05:31:23,2023-02-19T15:48:05
+step-9,qa/Start Stage,Success,workflow-6,2022-09-30 21:33:23,2023-03-31T18:19:51
+step-10,qa/QA3,Success,workflow-6,2022-11-10 08:57:32,2022-12-24T04:04:39
+step-11,qa/Complete Stage,Success,workflow-6,2023-01-25 01:43:47,2023-04-26T05:30:21
+step-12,uat/Start Stage,Success,workflow-7,2023-03-11 15:11:36,2023-03-30T13:56:10
+step-13,uat/Cloud UAT1,Success,workflow-7,2022-08-27 22:34:48,2023-07-08T07:28:24
+step-14,uat/Complete Stage,Success,workflow-7,2023-04-12 14:02:05,2023-07-19T20:09:50
+step-15,uat/Start Stage,Success,workflow-8,2022-07-05 06:27:39,2023-07-09T07:50:24
+step-16,uat/Cloud UAT2 ,Success,workflow-8,2022-07-18 08:06:49,2022-11-26T04:28:42
+step-17,uat/Complete Stage,Success,workflow-8,2022-08-31 11:17:56,2022-10-11T06:35:18
+step-18,triage/triage,Success,workflow-9,2022-10-05 06:10:19,2023-07-09T01:27:54
+step-19,publish/publish ,Failure,workflow-10,2023-01-17 13:44:50,2023-02-09T11:09:42
+step-20,qa/Start Stage,Success,workflow-11,2023-07-14 13:16:37,2023-07-17T17:20:03
+step-21,qa/QA3,Success,workflow-11,2023-04-17 22:21:15,2023-05-22T09:56:09
+step-22,qa/Complete Stage,Success,workflow-11,2022-11-16 14:28:37,2023-01-20T11:20:52
+step-23,prod/Start Stage,Success,workflow-12,2023-07-18 18:04:33,2023-07-19T13:20:05
+step-24,prod/PROD,Success,workflow-12,2022-07-22 15:26:50,2023-06-18T05:24:54
+step-25,uat/Start Stage,Success,workflow-13,2023-07-17 16:44:40,2023-07-17T21:03:09
+step-26,uat/Cloud UAT1,Success,workflow-13,2023-05-11 09:18:10,2023-06-04T18:17:32
+step-27,uat/Complete Stage,Success,workflow-13,2022-10-25 19:04:02,2023-03-23T18:47:50
+step-28,uat/Start Stage,Success,workflow-14,2023-03-18 22:23:31,2023-06-28T17:05:39
+step-29,uat/Cloud UAT2,Success,workflow-14,2022-10-05 13:19:02,2023-06-30T19:38:16
+step-30,uat/Complete Stage,Success,workflow-14,2022-11-10 04:14:25,2023-01-03T19:16:29
+step-31,generate_coverage_report,Success,workflow-15,2023-02-13 15:39:56,2023-06-05T13:33:58
+step-32,publish/publish,Success,workflow-16,2022-09-03 11:49:42,2023-03-24T01:57:37
+step-33,prod/Start Stage,Success,workflow-17,2022-12-30 17:33:50,2023-03-06T14:10:27
+step-34,prod/PROD,Success,workflow-17,2023-03-02 02:14:30,2023-03-21T12:49:29
+step-35,deploy/Start Stage,Success,workflow-18,2023-02-04 03:00:25,2023-03-30T10:24:57
+step-36,deploy/QA3,Success,workflow-18,2023-04-27 02:55:38,2023-06-09T23:21:04
+step-37,deploy/Complete Stage,Success,workflow-18,2023-06-15 09:04:12,2023-06-29T16:43:04
+step-38,e2e/build,Failure,workflow-18,2022-12-12 15:33:20,2023-01-29T05:22:44
+step-39,get_pod_uat/pod,Success,workflow-19,2022-11-16 13:04:03,2023-03-27T06:02:44
+step-40,create_image/publish,Success,workflow-19,2022-11-05 08:19:29,2022-11-14T06:05:12
+step-41,get_pod_qa3/pod,Success,workflow-19,2022-11-29 19:31:35,2023-06-04T21:47:01
+step-42,deploy_on_qa3/Start Stage,Success,workflow-19,2022-07-26 08:07:14,2022-09-25T17:51:16
+step-43,deploy_on_qa3/QA3,Success,workflow-19,2022-10-24 10:51:52,2023-04-17T01:13:57
+step-44,deploy_on_q3/Complete Stage,Success,workflow-19,2023-01-24 21:52:52,2023-04-11T22:15:23
+step-45,e2e_qa3/build,Failure,workflow-19,2023-07-09 08:13:11,2023-07-15T08:42:30
+step-46,deploy_on_uat,Success,workflow-19,2022-08-04 21:57:18,2022-09-03T09:00:23
+step-47,deploy_on_qa3_previous_image/Start Stage,Success,workflow-19,2022-10-30 14:50:05,2023-04-22T13:18:37
+step-48,e2e_uat,Success,workflow-19,2022-11-02 16:01:03,2023-07-01T23:13:18
+step-49,deploy_on_uat_previous_image,Success,workflow-19,2023-01-28 18:03:02,2023-03-04T14:12:15
+step-50,deploy_on_qa3_previous_image/QA3,Success,workflow-19,2022-11-10 12:05:34,2022-12-24T09:57:02
+step-51,deploy_on_q3_previous_image/Complete Stage,Success,workflow-19,2022-08-08 08:36:33,2022-11-27T15:27:46
+step-52,triage/triage,Success,workflow-20,2023-06-11 13:34:11,2023-07-02T14:03:53
+step-53,build/Using java version:11,Success,workflow-21,2022-07-31 11:49:44,2023-04-20T18:26:35
+step-54,publish/publish,Success,workflow-22,2023-04-12 06:04:15,2023-05-02T23:06:36
+step-55,publish/publish,Success,workflow-23,2023-05-27 06:16:15,2023-07-12T21:51:32
+step-56,qa/Start Stage,Success,workflow-24,2023-01-27 14:17:23,2023-07-17T10:59:26
+step-57,qa/QA3 Deployment,Success,workflow-24,2022-11-09 03:44:49,2023-05-20T12:46:48
+step-58,uat/Start Stage,Success,workflow-25,2023-03-10 14:06:28,2023-06-17T07:14:29
+step-59,uat/UAT1 Deployment,Success,workflow-25,2023-07-16 00:51:59,2023-07-16T20:06:12
+step-60,triage/triage,Success,workflow-26,2022-08-24 19:41:42,2023-04-01T16:29:21
+step-61,build/Using java version:11,Success,workflow-27,2023-01-29 16:21:50,2023-02-25T07:07:29
+step-62,prod/Start Stage,Success,workflow-28,2022-09-26 08:05:08,2023-01-28T15:28:16
+step-63,prod/PROD,Success,workflow-28,2022-10-20 05:42:06,2023-01-15T07:10:16
+step-64,prod/Complete Stage,Success,workflow-28,2022-12-26 06:13:29,2022-12-30T11:29:04
+step-65,publish/publish,Success,workflow-29,2022-09-03 21:47:46,2022-11-25T01:03:44
+step-66,qa/Start Stage,Success,workflow-30,2023-03-19 05:07:02,2023-05-05T10:37:07
+step-67,qa/QA3,Success,workflow-30,2022-07-29 20:10:23,2022-12-21T04:48:51
+step-68,qa/Complete Stage,Success,workflow-30,2023-02-21 01:40:11,2023-06-30T06:05:02
+step-69,uat/Start Stage,Success,workflow-31,2022-11-25 13:37:09,2023-01-08T01:41:37
+step-70,uat/Cloud UAT1,Success,workflow-31,2023-02-05 04:45:32,2023-04-05T08:42:17
+step-71,uat/Complete Stage,Success,workflow-31,2023-03-15 18:30:17,2023-07-18T01:25:49
+step-72,uat/Start Stage,Success,workflow-32,2023-05-16 04:45:01,2023-06-27T07:48:59
+step-73,uat/Cloud UAT2,Success,workflow-32,2022-09-23 23:43:49,2022-11-27T17:56:05
+step-74,uat/Complete Stage,Success,workflow-32,2023-07-07 03:52:52,2023-07-11T23:55:33
+step-75,triage/triage,Success,workflow-33,2023-06-13 14:15:26,2023-07-06T10:28:44
+step-76,build/Using java version:11,Success,workflow-34,2023-05-01 01:01:38,2023-07-14T02:10:20
+step-77,prod/Start Stage,Success,workflow-35,2022-08-26 19:40:36,2022-12-26T04:10:23
+step-78,prod/PROD,Success,workflow-35,2023-05-24 08:11:02,2023-06-04T04:15:29
+step-79,prod/Complete Stage,Success,workflow-35,2023-02-22 09:53:04,2023-03-29T02:54:29
+step-80,prod/Start Stage,Success,workflow-36,2023-02-27 12:24:12,2023-05-08T23:16:38
+step-81,prod/PROD,Success,workflow-36,2023-02-20 22:46:13,2023-07-12T22:13:51
+step-82,prod/Complete Stage,Success,workflow-36,2022-08-18 23:05:36,2022-12-08T13:31:32
+step-83,publish/publish,Success,workflow-37,2023-03-16 21:47:58,2023-06-07T12:13:15
+step-84,qa/Start Stage,Success,workflow-38,2022-08-16 17:37:31,2023-04-29T03:35:07
+step-85,qa/QA3,Success,workflow-38,2023-03-05 09:10:15,2023-04-07T14:28:06
+step-86,qa/Complete Stage,Success,workflow-38,2023-07-09 07:58:38,2023-07-13T09:20:09
+step-87,uat/Start Stage,Success,workflow-39,2022-11-10 01:04:00,2023-03-08T08:45:21
+step-88,uat/Cloud UAT1,Success,workflow-39,2023-07-01 17:46:34,2023-07-05T07:41:23
+step-89,uat/Complete Stage,Success,workflow-39,2022-09-08 10:25:12,2023-06-01T21:21:15
+step-90,uat/Start Stage,Success,workflow-40,2022-12-04 02:04:35,2023-04-02T07:19:33
+step-91,uat/Cloud UAT2,Success,workflow-40,2023-04-05 02:14:30,2023-07-18T14:33:57
+step-92,uat/Complete Stage,Success,workflow-40,2023-03-07 05:00:09,2023-04-03T12:11:23
+step-93,build/Using java version:11,Success,workflow-41,2023-07-14 22:11:28,2023-07-16T21:05:54
+step-94,triage/triage,Success,workflow-42,2023-07-19 13:41:03,2023-07-19T15:04:35
+step-95,publish/publish,Success,workflow-43,2023-02-18 11:15:58,2023-02-18T14:16:46
+step-96,triage/triage,Success,workflow-44,2023-02-04 12:29:59,2023-02-14T20:24:27
+step-97,buildPOC /using java version:11,Success,workflow-45,2022-12-02 17:27:19,2023-06-23T04:15:55
+step-98,publishPOC/publish,Success,workflow-45,2023-06-08 04:56:16,2023-07-13T17:58:46
+step-99,QA Deploy / Start Stage,Success,workflow-45,2022-08-12 20:22:15,2023-01-27T03:58:20
+step-100,QA Deploy / QA3,Success,workflow-45,2022-07-26 19:28:35,2023-07-14T06:28:29
+step-101,QA Deploy / Complete Stage,Success,workflow-45,2022-07-18 02:39:11,2022-11-07T16:16:49
+step-102,QA API E2E /E2E Test,Success,workflow-45,2022-09-14 00:16:06,2023-05-31T01:33:07
+step-103,QA Quality Gate / Karate Report,Success,workflow-45,2022-11-21 07:54:54,2023-05-07T01:14:34
+step-104,UAT1 Deploy/Start Stage,Success,workflow-45,2023-06-15 08:03:06,2023-07-04T02:00:49
+step-105,UAT1 Deploy/Cloud UAT1,Success,workflow-45,2023-04-06 11:03:23,2023-04-24T15:06:12
+step-106,UAT1 Deploy/ Complete Stage,Success,workflow-45,2022-09-26 20:32:59,2023-05-13T08:42:04
+step-107,UAT1 API E2E / E2E Test,Success,workflow-45,2023-05-20 19:10:04,2023-07-07T02:37:45
+step-108,UAT1 Quality Gate / Karate Report,Success,workflow-45,2023-03-12 16:58:49,2023-03-17T17:29:46
+step-109,UAT Performance Quality Gate / build,Success,workflow-45,2023-06-25 10:32:40,2023-07-01T09:18:05
+step-110,UAT2 Deploy / Start Stage,Success,workflow-45,2023-03-03 00:09:09,2023-05-07T13:01:33
+step-111,UAT2 Deploy / Cloud UAT2,Success,workflow-45,2022-12-06 17:26:19,2023-02-19T01:16:41
+step-112,UAT2 Deploy / Complete Stage,Success,workflow-45,2023-07-19 20:07:03,2023-07-19T22:58:09
+step-113,UAT2 API E2E / E2E Test,Success,workflow-45,2022-12-22 04:37:49,2023-04-06T07:35:32
+step-114,UAT2 Quality Gate / Karate Report,Failure,workflow-45,2023-01-24 14:58:21,2023-04-02T05:29:13
+step-115,qa/Start Stage,Success,workflow-46,2022-07-08 09:06:22,2022-11-11T11:53:02
+step-116,qa/QA3 Deployment,Success,workflow-46,2023-04-06 01:06:04,2023-04-08T17:39:07
+step-117,analyse/sonar-master,Success,workflow-47,2022-11-27 02:17:21,2023-01-02T17:04:46
+step-118,analyse/init,Success,workflow-48,2023-02-28 20:24:52,2023-04-25T02:40:26
+step-119,analyse/build,Success,workflow-48,2022-07-02 03:36:55,2022-12-07T13:59:10
+step-120,analyse/deploy(INT),Success,workflow-48,2023-02-25 20:58:49,2023-03-04T05:52:19
+step-121,analyse/deploy(QA3),Success,workflow-48,2022-10-18 16:44:01,2022-10-18T19:53:07
+step-122,label,Success,workflow-49,2023-03-20 02:28:46,2023-06-01T04:53:39
+step-123,analyse/analyse,Success,workflow-50,2023-05-10 07:54:44,2023-07-10T19:33:09
+step-124,analyse.sonar-master,Success,workflow-51,2023-01-15 06:16:45,2023-04-09T02:21:50
+step-125,analyse/init,Success,workflow-52,2022-08-26 10:19:15,2022-08-28T17:07:52
+step-126,analyse/build,Success,workflow-52,2022-12-25 21:27:26,2023-05-21T14:36:33
+step-127,analyse/deploy(INT),Success,workflow-52,2022-07-28 18:48:05,2023-03-12T04:03:54
+step-128,analyse/deploy(QA3),Success,workflow-52,2023-06-15 19:59:48,2023-06-21T22:46:30
+step-129,label,Success,workflow-53,2023-03-03 19:39:54,2023-04-29T15:05:51
+step-130,analyse/analyse,Success,workflow-54,2023-05-18 10:53:39,2023-07-12T22:15:45
+step-131,init,Success,workflow-55,2023-01-28 15:37:11,2023-03-14T15:46:37
+step-132,deploy/deploy,Success,workflow-55,2023-01-30 06:43:16,2023-04-13T02:36:53
+step-133,notify_on_slack,Success,workflow-55,2023-04-17 12:21:18,2023-05-31T17:14:42
+step-134,deploy/deploy,Success,workflow-56,2023-06-21 23:22:35,2023-07-17T16:39:55
+step-135,init,Success,workflow-57,2022-09-01 14:20:18,2023-03-18T20:51:34
+step-136,deploy/deploy,Success,workflow-57,2023-01-15 00:29:55,2023-07-08T09:33:41
+step-137,notify_on_slack,Success,workflow-57,2023-01-22 22:53:15,2023-03-26T01:08:58
+step-138,init,Success,workflow-58,2023-01-15 17:13:42,2023-04-05T16:36:44
+step-139,deploy/deploy,Success,workflow-58,2023-06-04 01:27:42,2023-06-16T05:01:55
+step-140,notify_on_slack,Success,workflow-58,2023-03-20 07:01:31,2023-07-18T22:53:54
+step-141,deploy/deploy,Success,workflow-59,2022-09-13 17:56:24,2022-11-20T09:09:49
+step-142,deploy/deploy,Success,workflow-60,2023-05-03 14:20:43,2023-07-06T10:47:14
+step-143,deploy/deploy,Success,workflow-61,2023-05-21 13:23:32,2023-05-30T15:05:40
+step-144,dispatch/test-job,Success,workflow-62,2022-12-14 00:49:39,2023-01-21T07:26:22
+step-145,analyses-project/analyses,Success,workflow-62,2022-10-14 02:19:35,2023-03-20T21:22:38
+step-146,publish/publish,Success,workflow-62,2023-02-23 15:31:25,2023-03-31T16:03:16
+step-147,notify_on_slack,Success,workflow-62,2023-02-27 23:02:21,2023-06-11T12:35:01
+step-148,label,Success,workflow-63,2022-10-14 16:17:15,2023-06-16T16:13:56
+step-149,Lint API using Equinix Standards,Success,workflow-64,2022-07-16 00:45:30,2022-11-19T05:06:37
+step-150,build-project/analyses,Success,workflow-64,2023-06-30 17:13:39,2023-07-15T15:30:30
+step-151,Debug,Success,workflow-65,2022-07-23 11:46:14,2022-09-06T00:01:57
+step-152,deploy/deploy,Failure,workflow-66,2023-04-24 13:27:30,2023-04-29T12:56:28

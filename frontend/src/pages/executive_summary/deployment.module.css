@@ -1,0 +1,41 @@
+.deployment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avgDeployment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 50px;
+}
+
+.deploymentRate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 50px;
+}
+
+
+.deploymentFrequency {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #557A46;
+    color: #ffffff;
+}
+
+.bar {
+    width: 100%;
+    height: 250px;
+}

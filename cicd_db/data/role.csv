@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+role_id,role
+=======
+role_id,role_name
+>>>>>>> e46422e (Add codes to repo)
+role-1,Executive
+role-2,Developer
+role-3,Project Lead

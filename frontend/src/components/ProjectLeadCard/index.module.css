@@ -1,0 +1,102 @@
+.head {
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.rate {
+    font-weight: 700;
+}
+
+.group {
+    margin-bottom: 10px;
+}
+
+.card {
+    background: #a8071a;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 8px 8px;
+    color: #ffffff;
+}
+
+.title {
+    font-size: 12px;
+    margin: 6px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event {
+    display: flex;
+    padding: 0px 4px;
+    background-color: #d3e3fc;
+    align-items: center;
+    border-radius: 8px;
+    color: #000000;
+    margin-left: 14px;
+    height: 24px;
+    font-size: 10px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12px;
+    margin: 6px 0;
+    
+}
+
+.version {
+    font-size: 12px;
+    margin: 6px 0;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    
+}
+
+.time {
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+
+.lastupdate {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.successIcon {
+    margin: 0 4px;
+    color: #a0d911;
+}
+
+.failIcon {
+    margin: 0 4px;
+    color: orange;
+}
+
+.event {
+    margin-right: 8px; 
+    font-size: 10px; 
+}

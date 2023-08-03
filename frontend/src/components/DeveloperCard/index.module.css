@@ -1,0 +1,64 @@
+.card {
+    /* height: 182px; */
+    background: #a8071a;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 8px 8px;
+    color: #ffffff;
+}
+
+.header {
+    font-size: 14px;
+}
+
+.title {
+    margin-left: 8px;
+}
+
+.githubIcon {
+    width: 42px;
+    height: 42px;
+    margin-right: 8px;
+}
+
+.manageBlock {
+    font-size: 10px;
+    display: flex;
+    align-items: flex-end;
+    margin: 12px 0;
+}
+
+.dispatch {
+    display: flex;
+    padding: 0px 4px;
+    background-color: #d3e3fc;
+    align-items: center;
+    border-radius: 8px;
+    color: #000000;
+    margin-left: 14px;
+    height: 24px;
+    font-size: 10px;
+}
+
+.progress {
+    font-size: 14px;
+    display: flex;
+}
+
+.icon {
+    margin: 0 4px;
+    color: #a0d911;
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 14px;
+}
+
+.lastupdate {
+    display: flex;
+    justify-content: flex-end;
+}
+
