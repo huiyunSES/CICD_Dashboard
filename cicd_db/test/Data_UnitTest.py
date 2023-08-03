@@ -9,11 +9,9 @@ import csv
 
 class TestData(unittest.TestCase):
     def setUp(self):
-<<<<<<< HEAD
+
         self.path = "./cicd_db/data"
-=======
         self.path = "../data"
->>>>>>> e46422e (Add codes to repo)
 
     def test_mock_data_generation(self):
         for filename in os.listdir(self.path):
