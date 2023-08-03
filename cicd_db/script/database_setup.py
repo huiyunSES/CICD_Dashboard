@@ -24,11 +24,8 @@ class DatabaseSetup:
         
         CREATE TABLE role (
             role_id VARCHAR(255) PRIMARY KEY,
-<<<<<<< HEAD
-            role VARCHAR(255)
-=======
+            role VARCHAR(255),
             role_name VARCHAR(255)
->>>>>>> e46422e (Add codes to repo)
         );
         
         CREATE TABLE users (
