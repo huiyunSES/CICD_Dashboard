@@ -11,9 +11,9 @@ const deployment_queries = require('./queries/deployment_queries');
 
 
 const Deployment = async (req, res) => {
-   const {product_team} = req.query;
-   const Deployment = await pool.query(deployment_queries.Deployment, [product_team]);
-   const DeploymentFrequency = await pool.query(deployment_queries.DeploymentFrequency, [product_team]);
+   const {product_team, last_time} = req.query;
+   const Deployment = await pool.query(deployment_queries.Deployment, [product_team, last_time]);
+   const DeploymentFrequency = await pool.query(deployment_queries.DeploymentFrequency, [product_team, last_time]);
    const response = {  
       "Deployment": Deployment.rows[0],
       "DeploymentFrequency": DeploymentFrequency.rows
@@ -41,8 +41,8 @@ const Deployment = async (req, res) => {
 };
 
 const PullRequest = (req, res) => {
-   const {product_team} = req.query;
-    pool.query(PullRequest_queries.PullRequest, [product_team], (error, results) => {
+   const {product_team, last_time} = req.query;
+    pool.query(PullRequest_queries.PullRequest, [product_team, last_time], (error, results) => {
      if (error) throw error;
      res.status(200).json(results.rows[0]);
     });
@@ -50,13 +50,15 @@ const PullRequest = (req, res) => {
  
 
  const Issue = async (req, res) => {
-   const {product_team} = req.query;
-   const Issue = await pool.query(issue_queries.Issue, [product_team]);
-   const Issue_chart = await pool.query(issue_queries.Issue_chart, [product_team]);
+   const {product_team, last_time} = req.query;
+   const Issue = await pool.query(issue_queries.Issue, [product_team, last_time]);
+   const Issue_bar_chart = await pool.query(issue_queries.Issue_bar_chart, [product_team, last_time]);
+   const Issue_line_chart = await pool.query(issue_queries.Issue_line_chart, [product_team, last_time]);
  
    const response = {
      "Issue": Issue.rows[0],
-     "Issue_chart": Issue_chart.rows
+     "Issue_bar_chart": Issue_bar_chart.rows,
+     "Issue_line_chart": Issue_line_chart.rows
    };
  
    return res.status(200).json(response);
@@ -72,8 +74,8 @@ const PullRequest = (req, res) => {
 
 
 const Repository = (req, res) => {
-   const {product_team} = req.query;
-    pool.query(repositories_queries.Repository, [product_team], (error, results) => {
+   const {product_team, last_time} = req.query;
+    pool.query(repositories_queries.Repository, [product_team, last_time], (error, results) => {
      if (error) throw error;
      res.status(200).json(results.rows[0]);
     });
@@ -89,9 +91,9 @@ const ProjectLead = (req, res) => {
 };
 
 const Coverage = async (req, res) => {
-   const {product_team} = req.query;
-   const coverage_rate_distribution = await pool.query(coverage_queries.coverage_rate_distribution, [product_team]);
-   const team_with_most_HighCoverage = await pool.query(coverage_queries.team_with_most_HighCoverage);
+   const {product_team, last_time} = req.query;
+   const coverage_rate_distribution = await pool.query(coverage_queries.coverage_rate_distribution, [product_team, last_time]);
+   const team_with_most_HighCoverage = await pool.query(coverage_queries.team_with_most_HighCoverage, [last_time]);
  
    const response = {
      "coverage_rate_distribution": coverage_rate_distribution.rows,
