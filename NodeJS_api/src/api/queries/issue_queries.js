@@ -10,7 +10,6 @@ INNER JOIN product_team ON repository.product_team_id = product_team.product_tea
 WHERE issue.closed_at IS NOT NULL
 GROUP BY product_team.product_team
 )
-
 SELECT
     (SELECT COUNT(issue.*) as overdue_issue
     FROM issue
