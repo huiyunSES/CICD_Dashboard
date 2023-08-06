@@ -2,7 +2,7 @@
 
 ## How to use
 
-Install it and run:
+Install dependency and run:
 
 ```bash
 npm install
