@@ -35,7 +35,7 @@ WHERE
          CASE WHEN $4 = '50-75%' THEN workflow_run.converage_rate >= 0.5 AND workflow_run.converage_rate < 0.75 END OR
          CASE WHEN $4 = '75-90%' THEN workflow_run.converage_rate >= 0.75 AND workflow_run.converage_rate < 0.9 END OR
          CASE WHEN $4 = '90-100%' THEN workflow_run.converage_rate >= 0.9 AND workflow_run.converage_rate <= 1.0 END OR
-         $4 IS NULL) -- If no coverage rate range is provided, include all coverage rates
+         $4 IS NULL) 
     )
     AND (CASE
            WHEN $5 = 'Last 7 days' THEN workflow_run.updated_at >= NOW() - INTERVAL '7 days'
