@@ -5,16 +5,17 @@ WITH avg_resolving_times AS (
         product_team.product_team,
         AVG(EXTRACT(EPOCH FROM (issue.closed_at - issue.created_at)) / 3600) AS avg_resolving_time_hours
 FROM issue
-INNER JOIN repository ON issue.repo_id = repository.repo_id
-INNER JOIN product_team ON repository.product_team_id = product_team.product_team_id
+LEFT JOIN repo_mapping ON issue.repo_id = repo_mapping.repo_id
+LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
 WHERE issue.closed_at IS NOT NULL
 GROUP BY product_team.product_team
 )
+
 SELECT
     (SELECT COUNT(issue.*) as overdue_issue
     FROM issue
-    INNER JOIN repository ON issue.repo_id = repository.repo_id
-    INNER JOIN product_team ON repository.product_team_id = product_team.product_team_id
+    LEFT JOIN repo_mapping ON issue.repo_id = repo_mapping.repo_id
+    LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
     WHERE closed_at > due_on
     AND (product_team.product_team = $1 OR $1 IS NULL)
     AND (
@@ -28,10 +29,11 @@ SELECT
         END
 )) AS overdue_issue,
 
+
 (SELECT ROUND(AVG(EXTRACT(EPOCH FROM (issue.closed_at - issue.created_at)) / 3600))::integer AS avg_resolving_time_hours
 FROM issue
-INNER JOIN repository ON issue.repo_id = repository.repo_id
-INNER JOIN product_team ON repository.product_team_id = product_team.product_team_id
+LEFT JOIN repo_mapping ON issue.repo_id = repo_mapping.repo_id
+LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
 WHERE issue.closed_at IS NOT NULL
 AND (product_team.product_team = $1 OR $1 IS NULL)
 AND (
@@ -44,6 +46,7 @@ AND (
     ELSE TRUE
 END
 )) AS average_resolving_time,
+
 
 (SELECT product_team
     FROM avg_resolving_times
@@ -60,20 +63,21 @@ END
                 ELSE TRUE
             END
         )
-)) AS fastest_team;`
-
+)) AS fastest_team;
+`
 const Issue_bar_chart = `
 
+
 SELECT
-    product_team.product_team AS product_team,
+    COALESCE(product_team.product_team, 'Unknown') AS product_team,
     COUNT(*) AS total_issue,
     SUM(CASE WHEN issue.closed_at IS NOT NULL THEN 1 ELSE 0 END) AS closed_issue
 FROM
     issue
-INNER JOIN
-    repository ON issue.repo_id = repository.repo_id
-INNER JOIN
-    product_team ON repository.product_team_id = product_team.product_team_id
+LEFT JOIN
+    repo_mapping ON issue.repo_id = repo_mapping.repo_id
+LEFT JOIN
+    product_team ON repo_mapping.product_team_id = product_team.product_team_id
 WHERE
     (product_team.product_team = $1 OR $1 IS NULL)
 AND (
@@ -87,19 +91,20 @@ AND (
     END
 )
 GROUP BY
-    product_team.product_team;
+    COALESCE(product_team.product_team, 'Unknown');
 `
 const Issue_line_chart = `
 
+
 SELECT
     TO_CHAR(DATE_TRUNC('month', issue.created_at), 'MM/YYYY') AS month,
-    ROUND(AVG(EXTRACT(EPOCH FROM (issue.closed_at - issue.created_at)) / 108000))::integer AS avg_resolving_time_hours
+    ROUND(AVG(EXTRACT(EPOCH FROM (issue.closed_at - issue.created_at)) / 3600))::integer AS avg_resolving_time_hours
 FROM
     issue
-INNER JOIN
-    repository ON issue.repo_id = repository.repo_id
-INNER JOIN
-    product_team ON repository.product_team_id = product_team.product_team_id
+LEFT JOIN
+    repo_mapping ON issue.repo_id = repo_mapping.repo_id
+LEFT JOIN
+    product_team ON repo_mapping.product_team_id = product_team.product_team_id
 WHERE
     (product_team.product_team = $1 OR $1 IS NULL)
     AND (
@@ -114,9 +119,10 @@ WHERE
 )
 GROUP BY
     TO_CHAR(DATE_TRUNC('month', issue.created_at), 'MM/YYYY'),
-    DATE_TRUNC('month', issue.created_at) -- Include in GROUP BY
+    DATE_TRUNC('month', issue.created_at) 
 ORDER BY
-    DATE_TRUNC('month', issue.created_at); -- Order by the actual date value
+    DATE_TRUNC('month', issue.created_at); 
+
 
 `
 module.exports ={
@@ -124,3 +130,5 @@ Issue,
 Issue_bar_chart,
 Issue_line_chart,
 };
+
+

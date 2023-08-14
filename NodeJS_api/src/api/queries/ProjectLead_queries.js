@@ -1,6 +1,6 @@
 const ProjectLead =`
 SELECT
-    product_team.product_team,
+    COALESCE(product_team.product_team, 'Unknown') AS product_team,
     repository.repository_name,
     JSONB_AGG(
         JSONB_BUILD_OBJECT(
@@ -18,19 +18,27 @@ SELECT
     ) AS workflow_runs
 FROM 
     workflow_run
-INNER JOIN 
-    repository ON workflow_run.repo_id = repository.repo_id
-INNER JOIN 
+LEFT JOIN 
+    repo_mapping ON workflow_run.repo_id = repo_mapping.repo_id
+LEFT JOIN 
     users ON workflow_run.actor_id = users.user_id
-INNER JOIN 
-    product_team ON repository.product_team_id = product_team.product_team_id
+LEFT JOIN 
+    product_team ON repo_mapping.product_team_id = product_team.product_team_id
+LEFT JOIN
+    repository ON workflow_run.repo_id = repository.repo_id
 WHERE
     (repository.repository_name = $1 OR $1 IS NULL)
-    AND (product_team.product_team = $2 OR $2 IS NULL)
+    AND (
+        (product_team.product_team = $2 AND $2 != 'Unknown')
+        OR (product_team.product_team IS NULL AND $2 = 'Unknown')
+        OR ($2 IS NULL)
+    )
     AND (workflow_run.conclusion = $3 OR $3 IS NULL)
 GROUP BY
-    product_team.product_team,
+    COALESCE(product_team.product_team, 'Unknown'),
     repository.repository_name;
+
+
 `
 
 module.exports ={

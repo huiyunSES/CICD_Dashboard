@@ -1,9 +1,9 @@
 const Repository = `
-
 SELECT
     (SELECT COALESCE(ROUND(COUNT(*) / 30.0 * 100)::INT, 0)
     FROM repository
-    LEFT JOIN product_team ON repository.product_team_id = product_team.product_team_id
+    LEFT JOIN repo_mapping ON repository.repo_id = repo_mapping.repo_id
+    LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
     WHERE repository.is_disabled = 'FALSE'
     AND (product_team.product_team = $1 OR $1 IS NULL)
     AND (
@@ -20,7 +20,8 @@ SELECT
 
     (SELECT COALESCE(COUNT(*), 0)
     FROM repository
-    LEFT JOIN product_team ON repository.product_team_id = product_team.product_team_id
+    LEFT JOIN repo_mapping ON repository.repo_id = repo_mapping.repo_id
+    LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
     WHERE repository.is_disabled = 'FALSE'
         AND repository.updated_at <= NOW() - INTERVAL '3 months'
         AND (product_team.product_team = $1 OR $1 IS NULL)
@@ -38,9 +39,9 @@ SELECT
 
     (SELECT COALESCE(ROUND(COUNT(CASE WHEN repository.is_disabled = 'TRUE' THEN 1 END)::DECIMAL / NULLIF(COUNT(*), 0) * 100)::INT, 0)
         FROM repository
-    LEFT JOIN product_team ON repository.product_team_id = product_team.product_team_id
-    WHERE repository.is_disabled = 'FALSE'
-    AND (product_team.product_team = $1 OR $1 IS NULL)
+    LEFT JOIN repo_mapping ON repository.repo_id = repo_mapping.repo_id
+    LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
+    WHERE (product_team.product_team = $1 OR $1 IS NULL)
     AND (
         CASE
             WHEN $2 = 'Last 7 days' THEN repository.created_at >= NOW() - INTERVAL '7 days'
@@ -55,9 +56,9 @@ SELECT
 
     (SELECT COALESCE(ROUND(COUNT(CASE WHEN repository.is_disabled = 'FALSE' THEN 1 END)::DECIMAL / NULLIF(COUNT(*), 0) * 100)::INT, 0)
     FROM repository
-    LEFT JOIN product_team ON repository.product_team_id = product_team.product_team_id
-    WHERE repository.is_disabled = 'FALSE'
-    AND (product_team.product_team = $1 OR $1 IS NULL)
+    LEFT JOIN repo_mapping ON repository.repo_id = repo_mapping.repo_id
+    LEFT JOIN product_team ON repo_mapping.product_team_id = product_team.product_team_id
+    WHERE (product_team.product_team = $1 OR $1 IS NULL)
     AND (
         CASE
             WHEN $2 = 'Last 7 days' THEN repository.created_at >= NOW() - INTERVAL '7 days'
@@ -68,8 +69,15 @@ SELECT
             ELSE TRUE
         END
     )) AS active_repositories_percentage;
+
+
 `;
+
 
 module.exports = {
 Repository,
 };
+
+
+
+

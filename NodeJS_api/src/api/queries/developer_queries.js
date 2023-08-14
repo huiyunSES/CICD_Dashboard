@@ -13,7 +13,7 @@ SELECT
     workflow_run.converage_rate,
     users.github_username,
     repository.repository_name,
-    product_team.product_team,
+    COALESCE(product_team.product_team, 'Unknown') AS product_team,
     ARRAY_AGG(JSON_BUILD_OBJECT('step_name', workflow_step.step_name, 'conclusion', workflow_step.conclusion) ORDER BY workflow_step.step_id) AS workflow_steps
 FROM 
     workflow_run
@@ -21,16 +21,21 @@ INNER JOIN
     workflow_step ON workflow_run.workflow_id = workflow_step.workflow_id
 INNER JOIN 
     users ON workflow_run.actor_id = users.user_id
-INNER JOIN 
-    repository ON workflow_run.repo_id = repository.repo_id
+LEFT JOIN
+    repo_mapping ON workflow_run.repo_id = repo_mapping.repo_id
+LEFT JOIN
+    product_team ON repo_mapping.product_team_id = product_team.product_team_id
 INNER JOIN
-    product_team ON repository.product_team_id = product_team.product_team_id
+    repository ON workflow_run.repo_id = repository.repo_id
 WHERE
     (repository.repository_name =$1 OR $1 IS NULL)
-    AND (product_team.product_team =$2 OR $2 IS NULL)
+    AND (
+        (product_team.product_team = $2 AND $2 != 'Unknown')
+        OR (product_team.product_team IS NULL AND $2 = 'Unknown')
+        OR ($2 IS NULL)
+    )
     AND (users.github_username =$3 OR $3 IS NULL)
     AND (
-
         (CASE WHEN $4 = '0-50%' THEN workflow_run.converage_rate >= 0 AND workflow_run.converage_rate < 0.5 END OR
          CASE WHEN $4 = '50-75%' THEN workflow_run.converage_rate >= 0.5 AND workflow_run.converage_rate < 0.75 END OR
          CASE WHEN $4 = '75-90%' THEN workflow_run.converage_rate >= 0.75 AND workflow_run.converage_rate < 0.9 END OR
@@ -57,7 +62,8 @@ GROUP BY
     workflow_run.converage_rate,
     users.github_username,
     repository.repository_name,
-    product_team.product_team;
+    COALESCE(product_team.product_team, 'Unknown');
+
 
     `
 
