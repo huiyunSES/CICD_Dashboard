@@ -10,7 +10,7 @@ The **Developer** View offers a comprehensive overview in the GitHub Actions tha
 
 The **Project Lead** View provides a high-level snapshot of the project, including the product name, repository, main branch, workflow run status, event type and coverage rate.
 
-![alt text](./workflow.png)
+The **Admin** View where admin map product and repositories
 
 Design Doc: [CI/CD Design Doc](https://equinixjira.atlassian.net/wiki/spaces/~7120201faa0f7e5d6f4ac485128a490f67e998/pages/145726999124/CI+CD+Dashboard+Design+Document)
 
