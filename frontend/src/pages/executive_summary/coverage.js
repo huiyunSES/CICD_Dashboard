@@ -24,18 +24,20 @@ export const CoverageChart = (props) => {
     const [option, setOption] = React.useState({});
 
     const initChartData = () => {
-        if(!data) return;
-        const xAxisData = data.map(item=>item.product_team)
-        const seriesData1 = data.map(item=>item['0-50%'])
-        const seriesData2 = data.map(item=>item['50-75%'])
-        const seriesData3 = data.map(item=>item['75-90%'])
-        const seriesData4 = data.map(item=>item['90-100%'])
+        if (!data) return;
+        const xAxisData = data.map(item => item.product_team);
+        const seriesData1 = data.map(item => item['0-50%']);
+        const seriesData2 = data.map(item => item['50-75%']);
+        const seriesData3 = data.map(item => item['75-90%']);
+        const seriesData4 = data.map(item => item['90-100%']);
+    
+        const isSingleProduct = xAxisData.length === 1;
+    
         setOption({
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
-                    // Use axis to trigger tooltip
-                    type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                    type: 'shadow'
                 }
             },
             legend: {},
@@ -46,11 +48,23 @@ export const CoverageChart = (props) => {
                 containLabel: true
             },
             xAxis: {
-                type: 'value'
+                type: 'value',
+                name: 'Codebase count',
+                nameLocation: 'middle',
+                nameGap: 17.7,
+                nameTextStyle: {
+                    fontWeight: 'bold' 
+                }
             },
             yAxis: {
                 type: 'category',
-                data: xAxisData
+                data: xAxisData,
+                name: 'Product Team',
+                nameLocation: 'middle',
+                nameGap: 55,
+                nameTextStyle: {
+                    fontWeight: 'bold' 
+                }
             },
             series: [
                 {
@@ -63,7 +77,8 @@ export const CoverageChart = (props) => {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: seriesData1
+                    data: seriesData1,
+                    barWidth: isSingleProduct ? '20%' : 'auto'
                 },
                 {
                     name: '50-75%',
@@ -75,7 +90,8 @@ export const CoverageChart = (props) => {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: seriesData2
+                    data: seriesData2,
+                    barWidth: isSingleProduct ? '20%' : 'auto'
                 },
                 {
                     name: '75-90%',
@@ -87,7 +103,8 @@ export const CoverageChart = (props) => {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: seriesData3
+                    data: seriesData3,
+                    barWidth: isSingleProduct ? '20%' : 'auto'
                 },
                 {
                     name: '90-100%',
@@ -99,11 +116,13 @@ export const CoverageChart = (props) => {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: seriesData4
+                    data: seriesData4,
+                    barWidth: isSingleProduct ? '20%' : 'auto'
                 }
             ]
-        })
-    }
+        });
+    };
+    
 
     React.useEffect(() => {
         initChartData()
