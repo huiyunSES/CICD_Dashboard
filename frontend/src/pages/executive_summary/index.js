@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Search from "../../components/Search/by_product";
+import Search from "../../components/Search/search";
 import { Deployment, AVGDeployment, DeploymentRate, DeploymentFrequency, DeploymentBarChart } from "./deployment";
 import { Repository, RepositoryIdleRepos, RepositoryStatus } from "./repository";
-import { AvgResolvingTime, FastestTeam, OverdueIssues, IssueChart } from './issue';
+import { AvgResolvingTime, FastestTeam, OverdueIssues, IssueChart, IssueLineChart } from './issue';
 import { Coverage, CoverageChart } from './coverage';
 import { PullRequestLeadTime, MergeRequest, Ratio, PullRequestSize } from './pullRequest';
 import {
@@ -153,7 +153,7 @@ export default function Dashboard() {
                     </Paper>
                 </Grid>
                
-                <Grid item md={3} >
+                <Grid item md={2.7} >
                     <Paper
                         sx={{
                             p: 2,
@@ -165,7 +165,7 @@ export default function Dashboard() {
                         <DeploymentFrequency data={deploymentData && deploymentData.Deployment} />
                     </Paper>
                 </Grid>
-                <Grid item md={4.5} >
+                <Grid item md={5.5} >
                     <Paper
                         sx={{
                             p: 6,
@@ -178,7 +178,7 @@ export default function Dashboard() {
                 </Grid>
               
 
-                <Grid item md={4.5} >
+                <Grid item md={3.8} >
                     <Paper
                         sx={{
                             p: 2,
@@ -193,22 +193,25 @@ export default function Dashboard() {
                     <Paper
                         sx={{
                             p: 2,
-                            height: 260,
+                            height: 285,
                             backgroundColor: '#435B66',
                             color: '#ffffff',
                             display: 'flex',
-                            justifyContent: 'center',
+                            justifyContent: 'left',
                             alignItems: 'center',
                         }}
                     >
-                        <AvgResolvingTime data={issueData} />
+                        <AvgResolvingTime data={issueData && issueData.Issue} />
+                        <div style={{margin: 'auto', width: 'fit-content', marginTop: '35px', marginLeft: '30px'}}>
+                        <FastestTeam data={issueData && issueData.Issue} />
+                        </div>
                     </Paper>
                 </Grid>
                 <Grid item md={3} >
                     <Paper
                         sx={{
                             p: 2,
-                            height: 260,
+                            height: 285,
                             backgroundColor: 'red',
                             color: '#ffffff',
                             display: 'flex',
@@ -216,30 +219,21 @@ export default function Dashboard() {
                             alignItems: 'center',
                         }}
                     >
-                        <OverdueIssues data={issueData} />
+                        <OverdueIssues data={issueData && issueData.Issue} />
                     </Paper>
                 </Grid>
 
-                <Grid item md={3} >
+                <Grid item md={6} >
                     <Paper
                         sx={{
                             p: 2,
-                            height: 260,
+                            height:285,
                         }}
                     >
-                        <FastestTeam data={issueData} />
+                        <IssueLineChart data={issueData && issueData.Issue_line_chart} />
                     </Paper>
                 </Grid>
-                <Grid item md={3} >
-                    <Paper
-                        sx={{
-                            p: 2,
-                            height: 260,
-                        }}
-                    >
-                        <Coverage data={converageData && converageData.team_with_most_HighCoverage} />
-                    </Paper>
-                </Grid>
+
                 <Grid item md={6} >
                     <Paper
                         sx={{
@@ -247,19 +241,25 @@ export default function Dashboard() {
                             height:321,
                         }}
                     >
-                        <IssueChart data={issueData} />
+                        <IssueChart data={issueData && issueData.Issue_bar_chart} />
                     </Paper>
-                </Grid>
+                </Grid>    
+
+
                 <Grid item md={6} >
                     <Paper
                         sx={{
                             p: 2,
+                            height:321,
                         }}
                     >
                         <CoverageChart data={converageData && converageData.coverage_rate_distribution} />
                     </Paper>
-                </Grid>
-                <Grid item md={3} >
+
+                    </Grid>
+                
+
+                <Grid item md={2.4} >
                     <Paper
                         sx={{
                             p: 2,
@@ -272,7 +272,7 @@ export default function Dashboard() {
                     </Paper>
                 </Grid>
 
-                <Grid item md={3} >
+                <Grid item md={2.4} >
                     <Paper
                         sx={{
                             p: 2,
@@ -286,7 +286,7 @@ export default function Dashboard() {
                     </Paper>
                 </Grid>
 
-                <Grid item md={3} >
+                <Grid item md={2.4} >
                     <Paper
                         sx={{
                             p: 2,
@@ -297,7 +297,7 @@ export default function Dashboard() {
                     </Paper>
                 </Grid>
 
-                <Grid item md={3} >
+                <Grid item md={2.4} >
                     <Paper
                         sx={{
                             p: 2,
@@ -313,11 +313,22 @@ export default function Dashboard() {
                     </Paper>
                 </Grid>
 
-
+                <Grid item md={2.4} >
+                    <Paper
+                        sx={{
+                            p: 2,
+                            height: 240,
+                        }}
+                    >
+                        <Coverage data={converageData && converageData.team_with_most_HighCoverage} />
+                    </Paper>
+                </Grid>
 
             </Grid>
-           
+
+     
         </Container >
      
     );
 }
+

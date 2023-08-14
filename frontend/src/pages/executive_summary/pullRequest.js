@@ -20,7 +20,7 @@ export const PullRequestSize = (props) => {
     const { data } = props;
     return (
         <div>
-            <Title>Pull Request Size</Title>
+            <Title>Total Pull Request</Title>
             <div className={styles.PullRequestSize}>
                 <Typography component="p" variant="h3" style={{fontSize: '60px'}}>
                     {data}
