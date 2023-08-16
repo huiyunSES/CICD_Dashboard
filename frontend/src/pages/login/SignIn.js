@@ -8,37 +8,15 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import microsoft from '../../assets/images/microsoft.png';
 import Equinix_logo from '../../assets/images/Equinix_logo.png';
-import Equinix from '../../assets/images/Equinix.png';
-import background from '../../assets/images/background.png';
-import { PublicClientApplication } from '@azure/msal-browser';
-import { config } from '../../Config'; // Import the MSAL configuration
-
-const msalApp = new PublicClientApplication({
-  auth: {
-    clientId: config.appId,
-    redirectUri: config.redirectUri,
-    authority: config.authority,
-  },
-  cache: {
-    cacheLocation: 'sessionStorage',
-    storeAuthStateInCookie: true,
-  },
-});
 
 export default function SignIn() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
-  const handleMicrosoftSignIn = async () => {
-    try {
-      const loginResponse = await msalApp.loginPopup({
-        scopes: ['openid', 'profile', 'email'], // Add necessary scopes
-      });
+  const handleSignIn = () => {
+    // Perform any authentication logic if needed
 
-      // After successful login, navigate to the dashboard or any other route
-      navigate('/dashboard/summary');
-    } catch (error) {
-      console.error('Error during Microsoft sign-in:', error);
-    }
+    // After successful "login", navigate to the dashboard or any other route
+    navigate('/dashboard/summary');
   };
 
   return (
@@ -53,9 +31,7 @@ export default function SignIn() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            mt: 1
-            
-         
+            mt: 1,
           }}
         >
           <img src={Equinix_logo} alt="Logo" style={{ width: '180px', marginRight: '5px', marginTop: "150px"}} />
@@ -80,11 +56,10 @@ export default function SignIn() {
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
-                
               }}
-              onClick={handleMicrosoftSignIn} 
+              onClick={handleSignIn} 
             >
-               <img src={microsoft} alt="Logo" style={{ width: '25px', height: '25px', marginRight: '5px'}} />
+              <img src={microsoft} alt="Logo" style={{ width: '25px', height: '25px', marginRight: '5px'}} />
               Sign in with Microsoft
             </Button>
           </Box>
@@ -98,19 +73,12 @@ export default function SignIn() {
         md={6}
         sx={{
           backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-          // backgroundImage: `url(${background})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: 'white',
-          // backgroundColor: (t) =>
-          //   t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
           backgroundSize: '650px',
           backgroundSize: 'cover',
           backgroundPosition: 'left',
-  
-
-        
         }}
       />
     </Grid>
   );
 }
+
