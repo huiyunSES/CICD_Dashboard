@@ -37,19 +37,18 @@ for i in range(1000):
         end_date=datetime.datetime(2023, 7, 20)
     ).strftime('%Y-%m-%dT%H:%M:%S')
     
-<<<<<<< HEAD
+
     completed_at = fake.date_time_between(
         start_date=datetime.datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%S'),
         end_date=datetime.datetime(2023, 7, 20)
     ).strftime('%Y-%m-%dT%H:%M:%S')
-=======
+
     completed_at =min(created_at + datetime.timedelta(days=3), datetime.datetime(2023,7,20))
     
     # completed_at = fake.date_time_between(
     #     start_date=datetime.datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%S'),
     #     end_date=datetime.datetime(2023, 7, 20)
     # ).strftime('%Y-%m-%dT%H:%M:%S')
->>>>>>> e46422e (Add codes to repo)
     
     created_date = datetime.datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%S').date()
     description = f"deployed from the {original_environment} to {environment} {created_date}"
