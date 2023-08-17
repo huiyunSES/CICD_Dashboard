@@ -1,10 +1,7 @@
 import random
 from faker import Faker
-<<<<<<< HEAD
 from datetime import datetime
-=======
 from datetime import datetime, timedelta
->>>>>>> e46422e (Add codes to repo)
 import pandas as pd
 
 fake = Faker()
@@ -29,7 +26,7 @@ def generate_mock_data():
             datetime_end=datetime(2023, 7, 20)
         ).strftime('%Y-%m-%dT%H:%M:%S')
 
-<<<<<<< HEAD
+
 
 
         # Randomly decide whether 'closed_at' should be set to a specific date or kept as null
@@ -42,7 +39,7 @@ def generate_mock_data():
 
         due_on = fake.date_time_between_dates(
             datetime_start=datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%S'),
-=======
+
         # Generate a closed_at timestamp within 3 days of created_at
         created_at_dt = datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%S')
         closed_at = fake.date_time_between_dates(
@@ -53,7 +50,7 @@ def generate_mock_data():
 
         due_on = fake.date_time_between_dates(
             datetime_start=created_at_dt,
->>>>>>> e46422e (Add codes to repo)
+
             datetime_end=datetime(2023, 7, 20)
         ).strftime('%Y-%m-%dT%H:%M:%S')
 
@@ -78,8 +75,3 @@ def generate_mock_data():
 mock_data_df = generate_mock_data()
 mock_data_df.to_csv('../../data/issue.csv', index=False)
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> e46422e (Add codes to repo)
