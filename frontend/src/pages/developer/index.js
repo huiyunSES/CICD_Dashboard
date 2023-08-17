@@ -11,7 +11,7 @@ const Developer = () => {
     const [query, setQuery] = useState({
         product_team: '',
         converage_rate_range: 'All',
-        last_time: 'All',
+        last_time: 'Last 1 year',
         github_username: '',
         repository_name: '',
     })
