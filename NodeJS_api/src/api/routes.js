@@ -11,6 +11,10 @@ router.get("/developer",  controller.Developer);
 router.get("/repository",  controller.Repository);
 router.get("/project-lead",  controller.ProjectLead);
 router.get("/coverage-rate",  controller.Coverage);
-
+router.get("/admin",  controller.Admin);
+router.post("/add-portfolio", controller.AddRepoMapping);
+router.post("/delete-portfolio", controller.DeleteRepoMapping);
+router.post("/save-portfolio", controller.SaveRepoMapping);
+router.get("/get-repo-list", controller.getRepoList);
 
 module.exports = router;
