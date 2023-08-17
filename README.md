@@ -12,5 +12,3 @@ The **Project Lead** View provides workflow happened within a project, including
 
 The **Admin** View is where admin maps product and repositories
 
-Design Doc: [CI/CD Design Doc](https://equinixjira.atlassian.net/wiki/spaces/~7120201faa0f7e5d6f4ac485128a490f67e998/pages/145726999124/CI+CD+Dashboard+Design+Document)
-
