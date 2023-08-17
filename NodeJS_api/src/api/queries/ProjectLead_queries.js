@@ -6,8 +6,8 @@ SELECT
         JSONB_BUILD_OBJECT(
             'workflow_id', workflow_run.workflow_id,
             'run_name', workflow_run.run_name,
-            'started_at', TO_CHAR(workflow_run.started_at, 'mm/dd/yyyy'), -- Corrected placement
-            'updated_at', TO_CHAR(workflow_run.updated_at, 'mm/dd/yyyy'), -- Corrected placement
+            'started_at', TO_CHAR(workflow_run.started_at, 'mm/dd/yyyy'), 
+            'updated_at', TO_CHAR(workflow_run.updated_at, 'mm/dd/yyyy'),
             'main_branch', workflow_run.main_branch,
             'run_conclusion', workflow_run.conclusion,
             'event', workflow_run.event,
