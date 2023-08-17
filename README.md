@@ -4,7 +4,7 @@
 
 The CI/CD dashboard integrates all CI/CD activities and provides functions for filtering data by time, product name, repository name, or GitHub users. The dashboard is designed to 4 personas: Executive Summary, Developer View, Project Lead View and Admin View.
 
-The **Executive Summary** view presents an overview of the product team's performance through numbers, graphs, and charts.
+The **Executive Summary** view presents an overview of the product team's performance through metrics, graphs, and charts.
 
 The **Developer** View offers a comprehensive overview in the GitHub Actions that includes repository name, owner, coverage rate, workflow step and workflow run status, main branch and event type.
 
